@@ -114,21 +114,26 @@ socials: [
 ```
 ---
 
-🌐 Hosting on Vercel
+## 🌐 Hosting on Vercel
 
 To deploy BioStyle online:
 
 Sign up at Vercel
-.
+
 Click New Project → Import Git Repository and select your repository.
 
 Configure the project:
+
+```
 Framework Preset: Vite
 Build Command: npm run build
 Output Directory: dist
 Click Deploy.
+```
 
 Vercel will generate a URL like:
+```
 https://biostyle.vercel.app
+```
 
-Every push to GitHub automatically triggers a redeploy.
+⚡ Every push to GitHub automatically triggers a redeploy.
