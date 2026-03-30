@@ -7,7 +7,7 @@ Perfect for showing your links, socials, and profile in a beautiful layout.
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
   <img src="https://img.shields.io/badge/Customizable-111111?style=for-the-badge"/>
-  <img src="https://img.shields.io/github/stars/yourusername/biostyle?style=social" alt="GitHub stars"/>
+  <img src="https://img.shields.io/github/stars/Augustofabg/biostyle?style=social" alt="GitHub stars"/>
 </p>
 
 ---
