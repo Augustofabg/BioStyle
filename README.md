@@ -51,63 +51,53 @@ npm run dev
 
 ⚙️ Configuration
 All user information is stored in:
-Bash
+
+```bash
 config/bioConfig.js
+```
+
 You can customize the following:
-1. Profile
+
+### 1. Profile
+
 Name & Bio – Change the displayed name and description.
+
 Avatar Image – Update your profile picture.
-2. Links
+
+### 2. Links
+
 Link Cards – Add or edit links with title, subtitle, URL, and thumbnail.
-3. Social Media Buttons
+
+### 3. Social Media Buttons
+
 Configure which social icons appear and their respective links.
-4. Music
+
+### 4. Music
+
 Set background music with source, title, artist, and cover image.
-5. Background Video
+
+### 5. Background Video
+
 Use a custom video as the page background.
+
 Edit in Home.jsx:
-Bash
-$ <source src={backgroundVideo} type="video/mp4" />
+JSX
+<source src={backgroundVideo} type="video/mp4" />
 Adding New Icons
 Import the new icon in Icons.jsx using react-icons:
-Bash
-$ import { YourIcon } from "react-icons/your-library";
-Link the icon in bioConfig.js:
-Bash
-$ export const SOCIAL_ICON = {
-$   newicon: Icons.YourIcon,
-$ };
-Add the icon to your socials array:
-Bash
-$ socials: [
-$   { id: "newicon", label: "New Icon", href: "https://example.com" },
-$ ];
-
----
-
-Adding New Icons
-
-1. Import the new icon in Icons.jsx using react-icons:
-
-
-
+JavaScript
 import { YourIcon } from "react-icons/your-library";
-
-2. Link the icon in bioConfig.js:
-
-
-
+Link the icon in bioConfig.js:
+JavaScript
 export const SOCIAL_ICON = {
   newicon: Icons.YourIcon,
 };
-
-3. Add the icon to your socials array:
-
-
-
+Add the icon to your socials array:
+JavaScript
 socials: [
   { id: "newicon", label: "New Icon", href: "https://example.com" },
 ];
+
 
 ---
 
