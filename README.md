@@ -14,13 +14,10 @@ Perfect for showing your links, socials, and profile in a beautiful layout.
 
 ## 🎬 Preview
 
-<p align="center">
-  <img src="https://i.imgur.com/kRVJ7bu.png" />
-</p>
-
-<p align="center">
-  <img src="https://i.imgur.com/Y3PIdRa.png" />
-</p>
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://i.imgur.com/kRVJ7bu.png" alt="Imagem 1" style="max-width: 100%; height: auto;" />
+  <img src="https://i.imgur.com/Y3PIdRa.png" alt="Imagem 2" style="max-width: 100%; height: auto;" />
+</div>
 
 ---
 
@@ -58,25 +55,60 @@ All user information is stored in:
 
 config/bioConfig.js
 
-You can customize:
+You can customize the following:
 
-Profile name & bio – Change the displayed name and description.
-Avatar image – Update your profile picture.
-Links – Add or edit link cards with title, subtitle, URL, and thumbnail.
-Social media buttons – Configure which social icons appear and their links.
-Music – Set the background music with source, title, artist, and cover image.
-Background Video – Use a custom video as the page background.
-Changing the Background Video
+1. Profile
 
-Edit the video in Home.jsx:
+Name & Bio – Change the displayed name and description.
+
+Avatar Image – Update your profile picture.
+
+
+2. Links
+
+Link Cards – Add or edit links with title, subtitle, URL, and thumbnail.
+
+
+3. Social Media Buttons
+
+Configure which social icons appear and their respective links.
+
+
+4. Music
+
+Set background music with source, title, artist, and cover image.
+
+
+5. Background Video
+
+Use a custom video as the page background.
+
+Edit in Home.jsx:
+
 
 <source src={backgroundVideo} type="video/mp4" />
+
+---
+
 Adding New Icons
-Import the new icon in Icons.jsx using react-icons.
-Link the icon in bioConfig.js:
+
+1. Import the new icon in Icons.jsx using react-icons:
+
+
+
+import { YourIcon } from "react-icons/your-library";
+
+2. Link the icon in bioConfig.js:
+
+
+
 export const SOCIAL_ICON = {
-  newicon: Icons.NewIcon,
+  newicon: Icons.YourIcon,
 };
+
+3. Add the icon to your socials array:
+
+
 
 socials: [
   { id: "newicon", label: "New Icon", href: "https://example.com" },
