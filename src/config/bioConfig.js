@@ -1,4 +1,3 @@
-// Import da imagem (corrigido)
 import avatarImg from "../assets/images/avatar.jpg";
 import song from "../assets/audio/ManofWar.mp3";
 import linkthumb001 from "../assets/images/link-thumb-001.jpg";
@@ -14,7 +13,6 @@ export const CONFIG = {
     title: "Man of War",
     artist: "Radiohead",
     cover: cover,
-    emoji: "🎵",
   },
   socials: [
     { id: "letterboxd", label: "Letterboxd", href: "https://boxd.it/4Y8vD" },
