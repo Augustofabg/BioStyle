@@ -29,9 +29,9 @@ export const CONFIG = {
       img: linkthumb001,
     },
     {
-      title: "コード",
-      sub: "github.com",
-      href: "#",
+      title: "このプロジェクト",
+      sub: "バイオスタイル",
+      href: "https://github.com/Augustofabg/BioStyle.git",
       img: linkthumb002,
     },
   ],

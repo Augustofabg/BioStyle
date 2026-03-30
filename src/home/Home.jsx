@@ -91,11 +91,11 @@ export default function Home() {
   return (
     <div
       style={{
-        Height: "100vh",
+        Height:"100vh",
         background: "#0e0e12",
         color: "#e8e8e8",
         fontFamily: "'Noto Sans JP', sans-serif",
-        overflow: "hidden",
+        overflowX: "hidden",
         position: "relative",
       }}
     >
