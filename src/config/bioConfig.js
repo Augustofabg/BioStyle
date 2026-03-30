@@ -3,6 +3,7 @@ import avatarImg from "../assets/images/avatar.jpg";
 import song from "../assets/audio/ManofWar.mp3";
 import linkthumb001 from "../assets/images/link-thumb-001.jpg";
 import linkthumb002 from "../assets/images/link-thumb-002.jpg";
+import cover from "../assets/images/cover.jpg";
 
 export const CONFIG = {
   name: "グッドマン",
@@ -12,7 +13,7 @@ export const CONFIG = {
     src: song,
     title: "Man of War",
     artist: "Radiohead",
-    cover: null,
+    cover: cover,
     emoji: "🎵",
   },
   socials: [

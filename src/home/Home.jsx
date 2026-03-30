@@ -1,56 +1,124 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CONFIG } from "../config/bioConfig";
 
 import Starfield from "../components/Starfield";
 import MusicPlayer from "../components/MusicPlayer";
 import LinkCard from "../components/LinkCard";
 import SocialBtn from "../components/SocialBtn";
-import { Icons } from "../components/Icons";
 import backgroundVideo from "../assets/background/background.mp4";
 
-export default function Home() {
-  const [views] = useState(1);
+// Typing effect
+function TypingName({ name }) {
+  const [displayed, setDisplayed] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [index, setIndex] = useState(0);
 
-  return (    
+  useEffect(() => {
+    const speed = isDeleting ? 200 : 200;
+    const pause = 3000;
+
+    if (!isDeleting && index === name.length) {
+      const timeout = setTimeout(() => setIsDeleting(true), pause);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && index === 0) {
+      const timeout = setTimeout(() => setIsDeleting(false), 200);
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setDisplayed(name.slice(0, index - 1));
+        setIndex(index - 1);
+      } else {
+        setDisplayed(name.slice(0, index + 1));
+        setIndex(index + 1);
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [index, isDeleting, name]);
+
+  return (
+    <span style={{ position: "relative", display: "inline-grid" }}>
+      {/* occupies the grid but remains invisible, preventing the text from moving */}
+      <span
+        style={{
+          opacity: 0,
+          pointerEvents: "none",
+          whiteSpace: "nowrap",
+          gridArea: "1 / 1",
+        }}
+      >
+        {name}
+      </span>
+
+      {/* glow effect */}
+      <span
+        style={{
+          gridArea: "1 / 1",
+          display: "inline-flex",
+          alignItems: "center",
+          filter:
+            "drop-shadow(0 0 8px rgb(235, 84, 84)) drop-shadow(0 0 20px #d83232) drop-shadow(0 0 40px #eb1313)",
+          color: "#ffffff",
+          letterSpacing: "0.02em",
+          whiteSpace: "nowrap",
+        }}
+      >
+        {displayed}
+        {/* cursor */}
+        <span
+          style={{
+            display: "inline-block",
+            width: "3px",
+            height: "0.85em",
+            backgroundColor: "rgb(201, 90, 90)",
+            marginLeft: "3px",
+            verticalAlign: "middle",
+            flexShrink: 0,
+            boxShadow: "0 0 8px rgb(235, 84, 84), 0 0 16px #eb1313",
+            animation: "blink 0.7s step-end infinite",
+          }}
+        />
+      </span>
+    </span>
+  );
+}
+
+export default function Home() {
+  return (
     <div
       style={{
-        minHeight: "100vh",
+        Height: "100vh",
         background: "#0e0e12",
         color: "#e8e8e8",
         fontFamily: "'Noto Sans JP', sans-serif",
-        overflowX: "hidden",
+        overflow: "hidden",
         position: "relative",
       }}
     >
-     <style>{`
-  @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes rotateSlow { to{transform:rotate(360deg)} }
-  @keyframes arrowBob { 0%,100%{transform:translateY(0);opacity:.4} 50%{transform:translateY(6px);opacity:.65} }
-  @keyframes ringPulse { 0%,100%{opacity:.18} 50%{opacity:.32} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
+        @keyframes rotateSlow { to{transform:rotate(360deg)} }
+        @keyframes arrowBob { 0%,100%{transform:translateY(0);opacity:.4} 50%{transform:translateY(6px);opacity:.65} }
+        @keyframes ringPulse { 0%,100%{opacity:.18} 50%{opacity:.32} }
+        @keyframes blink { 50% { opacity: 0; } }
+      `}</style>
 
-  /* Animação de cursor piscando */
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-
-  /* Animação de digitação */
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-`}</style>
-
-      {/* Background Video */}
+      {/* Background. use img for images*/}
       <div
         style={{
           position: "fixed",
           inset: 0,
           zIndex: 0,
           pointerEvents: "none",
+          objectPosition: "center"
         }}
       >
         <video
@@ -68,7 +136,7 @@ export default function Home() {
           <source src={backgroundVideo} type="video/mp4" />
         </video>
 
-        {/* Overlay escuro */}
+        {/* Overlay */}
         <div
           style={{
             position: "absolute",
@@ -81,7 +149,7 @@ export default function Home() {
 
       <Starfield />
 
-      {/* Conteúdo Principal - com z-index alto */}
+      {/* content */}
       <div
         style={{
           position: "relative",
@@ -109,8 +177,7 @@ export default function Home() {
               height: 134,
               marginBottom: 5,
             }}
-          >  
-          
+          >
             <div
               style={{
                 width: 134,
@@ -130,40 +197,21 @@ export default function Home() {
           </div>
         </div>
 
-       {/* Name com animação de digitação */}
-<div style={{
-  marginTop: 10,
-  marginBottom: 5,
-  fontFamily: "'Reggae One', sans-serif",
-  fontSize: "3rem",
-  fontWeight: 700,
-  letterSpacing: "0.08em",
-  color: "#ffffff",
-  textAlign: "center",
-  textShadow: "0 0 20px rgba(180, 220, 255, 0.6)",
-  position: "relative",
-  animation: "fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s both",
-  overflow: "hidden",
-  whiteSpace: "nowrap",
-}}>
-  <span id="typing-name" style={{
-    display: "inline-block",
-    position: "relative",
-  }}>
-    {CONFIG.name}
-  </span>
-  
-  {/* Cursor piscando */}
-  <span style={{
-    display: "inline-block",
-    width: "4px",
-    height: "1.1em",
-    backgroundColor: "#a0d8ff",
-    verticalAlign: "middle",
-    marginLeft: "4px",
-    animation: "blink 0.7s step-end infinite",
-  }}></span>
-</div>
+        {/* Name */}
+        <div
+          style={{
+            marginTop: 10,
+            marginBottom: 5,
+            fontFamily: "'Reggae One', sans-serif",
+            fontSize: "3rem",
+            fontWeight: 700,
+            textAlign: "center",
+            animation: "fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s both",
+            whiteSpace: "nowrap",
+          }}
+        >
+          <TypingName name={CONFIG.name} />
+        </div>
 
         {/* Bio */}
         <div
@@ -215,20 +263,6 @@ export default function Home() {
           {CONFIG.links.map((link, i) => (
             <LinkCard key={i} link={link} index={i} />
           ))}
-        </div>
-
-        {/* Views */}
-        <div
-          style={{
-            marginTop: 20,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            color: "rgba(255,255,255,0.4)",
-          }}
-        >
-          <Icons.Eye />
-          <span>{views}</span>
         </div>
       </div>
 
