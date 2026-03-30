@@ -83,9 +83,7 @@ export default function MusicPlayer() {
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        marginTop: -100,
-        position: "relative",
-        zIndex: 10,
+        marginTop: 20,
       }}
     >
       <audio ref={audioRef} preload="auto" src={music.src} loop />

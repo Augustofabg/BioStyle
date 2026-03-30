@@ -91,7 +91,7 @@ export default function Home() {
   return (
     <div
       style={{
-        Height:"100vh",
+        height:"100vh",
         background: "#0e0e12",
         color: "#e8e8e8",
         fontFamily: "'Noto Sans JP', sans-serif",
@@ -158,7 +158,7 @@ export default function Home() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "80px 20px 120px",
+          padding: "20px 20px 20px",
         }}
       >
         {/* Avatar */}
@@ -264,9 +264,11 @@ export default function Home() {
             <LinkCard key={i} link={link} index={i} />
           ))}
         </div>
+
+        <MusicPlayer />
       </div>
 
-      <MusicPlayer />
+      
     </div>
   );
 }
