@@ -39,7 +39,7 @@ Perfect for showing your links, socials, and profile in a beautiful layout.
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/biostyle
+git clone https://github.com/Augustofabg/biostyle
 cd biostyle
 npm install
 npm run dev
@@ -81,25 +81,37 @@ Set background music with source, title, artist, and cover image.
 
 Use a custom video as the page background.
 
+---
+
 Edit in ``Home.jsx``:
-JSX
+
+```bash
 <source src={backgroundVideo} type="video/mp4" />
-Adding New Icons
-Import the new icon in Icons.jsx using react-icons:
-JavaScript
+```
+
+Adding New Icons:
+
+Import the new icon in ``Icons.jsx`` using react-icons:
+
+```bash
 import { YourIcon } from "react-icons/your-library";
-Link the icon in bioConfig.js:
-JavaScript
+```
+
+Link the icon in ``bioConfig.js``:
+
+```bash
 export const SOCIAL_ICON = {
   newicon: Icons.YourIcon,
 };
+```
+
 Add the icon to your socials array:
-JavaScript
+
+```bash
 socials: [
   { id: "newicon", label: "New Icon", href: "https://example.com" },
 ];
-
-
+```
 ---
 
 🌐 Hosting on Vercel
