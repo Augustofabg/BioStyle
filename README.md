@@ -49,7 +49,8 @@ npm run dev
 
 ---
 
-⚙️ Configuration
+## ⚙️ Configuration
+
 All user information is stored in:
 
 ```bash
@@ -80,7 +81,7 @@ Set background music with source, title, artist, and cover image.
 
 Use a custom video as the page background.
 
-Edit in Home.jsx:
+Edit in ``Home.jsx``:
 JSX
 <source src={backgroundVideo} type="video/mp4" />
 Adding New Icons
