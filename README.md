@@ -1,12 +1,17 @@
-# 🌌 BioStyle
+<div align="center">
+  <h1>⛲ BioStyle</h1><br/>
+</div>
 
+<p align="center">
 A fully customizable **link-in-bio** page with music, animated backgrounds, and styled links.  
 Perfect for showing your links, socials, and profile in a beautiful layout.
+</p>
 
+<br/>
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Customizable-111111?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Customizable-111111?style=for-the-badge"/><br/>
   <img src="https://img.shields.io/github/stars/Augustofabg/biostyle?style=social" alt="GitHub stars"/>
 </p>
 
@@ -14,10 +19,7 @@ Perfect for showing your links, socials, and profile in a beautiful layout.
 
 ## 🎬 Preview
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <img src="https://i.imgur.com/kRVJ7bu.png" alt="Imagem 1" style="max-width: 100%; height: auto;" />
-  <img src="https://i.imgur.com/Y3PIdRa.png" alt="Imagem 2" style="max-width: 100%; height: auto;" />
-</div>
+<div style="display: flex; justify-content: center; gap: 10px;"> <img src="https://i.imgur.com/kRVJ7bu.png" alt="Imagem 1" style="max-width: 100%; height: auto;" /> </div>
 
 ---
 
