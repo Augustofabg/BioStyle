@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-A fully customizable **link-in-bio** page with music, animated backgrounds, and styled links.  
+A fully customizable link-in-bio page with music, animated backgrounds, and styled links.  
 Perfect for showing your links, socials, and profile in a beautiful layout.
 </p>
 
